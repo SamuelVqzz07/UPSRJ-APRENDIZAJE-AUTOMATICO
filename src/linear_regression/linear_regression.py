@@ -160,4 +160,3 @@ class LinearRegressionCompare:
             print(f"Se creó gráfico de regresión lineal en {out}")
         except Exception as e:
             print(f"Error: no se pudo crear gráfico del modelo: {e}")
-            
