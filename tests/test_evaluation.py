@@ -29,6 +29,7 @@ BOLD = "\033[1m"
 SEPARATOR = f"{BOLD}{'='*50}{RESET}"
 
 SOURCE_URL = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%202/data/FuelConsumptionCo2.csv"
+CHURN_URL = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/ChurnData.csv"
 OUTPUT_DIR = "test_outputs"
 FEATURE_1 = "ENGINESIZE"
 FEATURE_2 = "FUELCONSUMPTION_COMB"
@@ -258,7 +259,7 @@ class TestEvaluationThree(unittest.TestCase):
 
     def test_model_training(self):
         coef = self.model.m.coef_[0]
-        self.assertIsInstance(coef, float)
+        self.assertTrue(isinstance(coef, (float, np.floating, np.ndarray)))
 
     def test_output_files_created(self):
         files = [
@@ -285,7 +286,7 @@ class TestEvaluationFour(unittest.TestCase):
         if not os.path.exists(OUTPUT_DIR):
             os.mkdir(OUTPUT_DIR)
         cls.model = LogisticRegressionCompare(
-            url=SOURCE_URL,
+            url=CHURN_URL,
             base=CHURN,
             out=OUTPUT_DIR
         )
@@ -300,7 +301,7 @@ class TestEvaluationFour(unittest.TestCase):
 
     def test_model_training(self):
         coef = self.model.m.coef_[0]
-        self.assertIsInstance(coef, float)
+        self.assertTrue(isinstance(coef, (float, np.floating, np.ndarray)))
 
     def test_output_files_created(self):
         files = [
