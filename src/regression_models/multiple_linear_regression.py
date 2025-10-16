@@ -156,6 +156,7 @@ class MultipleLinearRegressionCompare:
             ax.plot_surface(x1_surf, x2_surf, y_surf, color='k', alpha=0.21,label='plane')
 
             # Set view and labels
+            
             ax.view_init(elev=10)
 
             ax.legend(fontsize='x-large',loc='upper center')
